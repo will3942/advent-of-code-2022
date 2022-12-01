@@ -76,25 +76,6 @@ func parseInputFile(path string) []Elf {
 	return elves
 }
 
-func findElfCarryingTheMostFood(elves []Elf) Elf {
-	var currentMaxElf Elf
-	var currentMaxCalories int64
-
-	currentMaxElf = elves[0]
-	currentMaxCalories = 0
-
-	for _, elf := range elves {
-		calories := elf.currCalories
-
-		if elf.currCalories > currentMaxCalories {
-			currentMaxElf = elf
-			currentMaxCalories = calories
-		}
-	}
-
-	return currentMaxElf
-}
-
 func sortElvesByCalories(elves []Elf) []Elf {
 	sort.Slice(elves, func(i, j int) bool {
 		return elves[i].currCalories > elves[j].currCalories
@@ -109,10 +90,6 @@ func main() {
 	elves := parseInputFile("./1-input.txt")
 
 	fmt.Println("Num elves: ", len(elves))
-
-	largestElf := findElfCarryingTheMostFood(elves)
-
-	fmt.Println("Largest elf: ", largestElf.currCalories)
 
 	elves = sortElvesByCalories(elves)
 
