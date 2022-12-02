@@ -85,8 +85,6 @@ func sortElvesByCalories(elves []Elf) []Elf {
 }
 
 func main() {
-	fmt.Println("Hello, World!")
-
 	elves := parseInputFile("./1-input.txt")
 
 	fmt.Println("Num elves: ", len(elves))
